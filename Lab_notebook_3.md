@@ -46,13 +46,23 @@ SRR292770_S1_L001_R2_001.fastq - 5102041
 
 9. Делаем символическую ссылку на quast: `ln -s /Users/macair/Desktop/Bioinformatics_Institute/Bioinf_practice/Project_3/quast-5.2.0/quast.py quast`
 
-10. Запускаем программу spadex для образца SRR292678: 
+10. Запускаем программу spadex для образца SRR292678: \
 `./spades.py --pe1-1 SRR292678sub_S1_L001_R1_001.fastq.gz --pe1-2 SRR292678sub_S1_L001_R2_001.fastq.gz -o spades78_result_re`
 
-11. Запускаем программу quast для образца SRR292678:
-``
+11. Смотрим на распределение k-меров после spades у corrected файлов: \
+`jellyfish count -m 31 -s 50000000 -t 4 -o 78sub_corr.jf  -C SRR292678sub_S1_L001_R1_001.fastq.00.0_0.cor.fastq SRR292678sub_S1_L001_R2_001.fastq.00.0_0.cor.fastq`, `jellyfish histo 78sub_corr.jf`, `jellyfish histo -o 78sub_corr.histo 78sub_corr.jf` \
+[K-mer distribution in sample SRR292678sub corrected](https://github.com/lear-711/Bioinformatics_practice/blob/b905d77ea37a241eb47538ced17e6f575cc0ac63/Project_3/Rplot_78_sub_corr.jpeg)
+
+После коррекции ошибок (у corrected файлов) на графике видно, что количество k-меров, которые встречаются 1-2 раза (скорее всего содержащие ошибки секвенирования), заметно сократилось; пик с основными k-мерами стал более выраженным и сдвинулся со значения 64 на 124 (покрытие увеличилось?)
+
+12. Запускаем программу quast для образца SRR292678: \
+`./quast ./spades78_result_re/contigs.fasta ./spades78_result_re/scaffolds.fasta`
+
+12. В результате получаем следующие файлы в report: \
+[Quast report](https://github.com/lear-711/Bioinformatics_practice/blob/b905d77ea37a241eb47538ced17e6f575cc0ac63/Project_3/Raw_data/quast_results/results_2022_11_26_15_11_17/report.pdf) \
+[Basic stats](https://github.com/lear-711/Bioinformatics_practice/tree/Project_3/Project_3/Raw_data/quast_results/results_2022_11_26_15_11_17/basic_stats)
 
 
-9. Запускаем программу spadex для 3 образцов: 
+113. Запускаем программу spadex для 3 образцов: \
 `./spades.py --pe1-1 SRR292678sub_S1_L001_R1_001.fastq.gz --pe1-2 SRR292678sub_S1_L001_R2_001.fastq.gz --mp1-1 SRR292770_S1_L001_R1_001.fastq.gz --mp1-2 SRR292770_S1_L001_R2_001.fastq.gz --mp2-1 SRR292862_S2_L001_R1_001.fastq.gz --mp2-2 SRR292862_S2_L001_R2_001.fastq.gz -o spades_result_mate`
 
