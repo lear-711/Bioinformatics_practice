@@ -62,7 +62,7 @@ N = (M\*L)/(L-K+1) ((N: глубина покрытия, M: пик k-меров,
 `jellyfish count -m 31 -s 50000000 -t 4 -o 78sub_corr.jf  -C SRR292678sub_S1_L001_R1_001.fastq.00.0_0.cor.fastq SRR292678sub_S1_L001_R2_001.fastq.00.0_0.cor.fastq`, `jellyfish histo 78sub_corr.jf`, `jellyfish histo -o 78sub_corr.histo 78sub_corr.jf` \
 [K-mer distribution in sample SRR292678sub corrected](https://github.com/lear-711/Bioinformatics_practice/blob/b905d77ea37a241eb47538ced17e6f575cc0ac63/Project_3/Rplot_78_sub_corr.jpeg)
 
-После коррекции ошибок (у corrected файлов) на графике видно, что количество k-меров, которые встречаются 1-2 раза (скорее всего содержащие ошибки секвенирования), заметно сократилось; пик с основными k-мерами стал более выраженным и сдвинулся со значения 64 на 125 (покрытие увеличилось?)
+После коррекции ошибок (у corrected файлов) на графике видно, что количество k-меров, которые встречаются 1-2 раза (скорее всего содержащие ошибки секвенирования), заметно сократилось; пик с основными k-мерами стал более выраженным и сдвинулся со значения 64 на 125.
 
 12. Запускаем программу quast для образца SRR292678: \
 `./quast ./spades78_result_re/contigs.fasta ./spades78_result_re/scaffolds.fasta`
