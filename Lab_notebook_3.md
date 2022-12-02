@@ -99,8 +99,8 @@ N50 = 151014
 
 20. В программе Mauve скачанную последовательность используем в качестве референса, чтобы понять природу возникновения изучаемого нами нового штамма *E.Coli X*
 
-Гены, ассоциированные с Shiga-токсином, полученные при выравнивании в Mauve:
-stxB 3483605-3483874
+Гены, ассоциированные с Shiga-токсином, полученные при выравнивании в Mauve: \
+stxB 3483605-3483874 \
 stxA 34838886-3484845
 
 Вокруг генов stxA и stxB находятся гены, кодирующие фаговые белки. Поэтому можно сделать вывод, что природа возникновения нового штамма - фаги, которые "передали" свой собственный геном (профаг) в бактериальный геном.
@@ -109,12 +109,13 @@ stxA 34838886-3484845
 
 Для того, чтобы понять, с каким антибиотикам резистентен изучаемый штамм *E.Coli*, воспользуемся базой данных [https://cge.food.dtu.dk/services/ResFinder/] \
 
-(Antibiotic resistance E.Coli X)[https://cge.food.dtu.dk//cgi-bin/webface.fcgi?jobid=6383B047000073D0DD294E94]
-(Antibiotic resistance E.Coli 55989)[]
+**Результаты**: \
+(Antibiotic resistance E.Coli X)[https://cge.food.dtu.dk//cgi-bin/webface.fcgi?jobid=6383B047000073D0DD294E94] \
+(Antibiotic resistance E.Coli 55989)[https://cge.food.dtu.dk//cgi-bin/webface.fcgi?jobid=6389F90300002222F51269F5]
 
-Антибиотики, к которым резистентен изучаемый штамм *E.Coli X*:
+Антибиотики, к которым резистентен изучаемый штамм *E.Coli X*: beta-lactam (amoxicillin, ampicillin, aztreonam, cefepime, cefotaxime, ceftazidime, ceftriaxone, piperacillin, ticarcillin), aminoglycoside (streptomycin), tetracycline (doxycycline, tetracycline).
 
-Антибиотики, к которым резистентен штамм *E.Coli 55989*: 
+Антибиотики, к которым резистентен штамм *E.Coli 55989*: etracycline (doxycycline, tetracycline, minocycline).
 
 
 
