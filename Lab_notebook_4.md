@@ -37,3 +37,5 @@ gg5927.t1 \
 gg7861.t1 \
 gg8100.t1 \
 gg8312.t1
+
+gg14472.t1 damage suppressor protein is most likely involved in DNA protection and repair in tardigrades.
