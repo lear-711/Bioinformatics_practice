@@ -13,9 +13,12 @@
 9. Extract proteins of interest: \
 `cat blasted_proteins.fa | awk '{print $2}' > names.txt` \
 `xargs samtools faidx augustus.whole.aa < names.txt > interest.fa` \
-`cat ./interest.fa | grep '>' | wc -l` = 118 proteins of interest
+`cat ./interest.fa | grep '>' | wc -l` = 118 proteins of interest \
 
-Prediction where these proteins are found in the cell based on their sequences:
+But some proteins repeat, so: \
+`uniq -u names.txt > unique_names.txt` = 97 unique proteins of interest
+
+Prediction where these proteins are found in the cell based on their sequences: \
 10. [Results of WoLF PSORT](https://wolfpsort.hgc.jp/results/aKC99f49e81a7e04690c90d3c2176bf8494.html) \
 11. [Results of TargetP 1.1 Server](https://services.healthtech.dtu.dk/service.php?TargetP-2.0) \
 12. Based on the results obtained, we filter only those proteins that are found in the nucleus and take only unique ones: \
@@ -23,7 +26,7 @@ gg10513.t1 \
 gg10514.t1 \
 gg11513.t1 \
 gg11806.t1 \
-gg11960.t1 \ 
+gg11960.t1 \
 gg14472.t1 \
 gg16318.t1 \
 gg16368.t1 \
