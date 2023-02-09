@@ -16,6 +16,8 @@ path to plink: `/Users/macair/Desktop/plink_mac_20230116`
 
 ### Origins, haplogroups
 
+[Result](https://github.com/lear-711/Bioinformatics_practice/blob/ba39eda8b34ad9c0902146580bbef08fafa7fb51/snps_clean%E2%80%94mtDNA%20Haplogroup%20Analysis%20Report.pdf) for mtDNA (shows all SNPs that distinguish the haplogroup)
+
 ### Annotation - sex and eye colour
 
 **SNPs responsible for eye colour and skin tone**: \
@@ -33,3 +35,14 @@ path to plink: `/Users/macair/Desktop/plink_mac_20230116`
  rs1426654
  rs885479
  rs1545397
+ 
+ ### Annotation of all SNPs, selection of clinically relevant ones
+ 
+[Result](http://grch37.ensembl.org/Homo_sapiens/Tools/VEP/Results?tl=R0Bm79SMKpUCtY9F-8930280) of Variant Effect Predictor
+
+ Look at CLIN_SIG: \
+ `awk '($32!="-") ' <vep_output.txt> | grep risk_factor | cut -f 1-3 | sort | uniq`
+ 
+ 
+ 
+ 
