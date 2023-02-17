@@ -1,6 +1,7 @@
 # H+, or how to build a perfect human
 
-[Ссылка на Google Colab](https://colab.research.google.com/drive/17G5jDCQJLDjDRkJI8C8L4vbVCb4-FzHl?usp=sharing)
+[Ссылка на Google Colab](https://colab.research.google.com/drive/17G5jDCQJLDjDRkJI8C8L4vbVCb4-FzHl?usp=sharing) \
+[Ссылка на Overleaf](https://www.overleaf.com/read/fmfdyvzwwmkk)
 
 ### Dataset
 
