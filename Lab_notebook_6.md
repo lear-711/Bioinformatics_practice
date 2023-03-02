@@ -47,6 +47,10 @@ Simplify the counts: \
 #### 2.4 Find differentially expressed genes with Deseq2
 
 Calculate metrics: \
+
+Uploading the file: \
+[deseq2.r](https://github.com/lear-711/Bioinformatics_practice/blob/486f49aa309abc052a002c96b79525bd7a284698/deseq2.r)
+
 `cat simple_counts.txt | R -f deseq2.r `
 
 
