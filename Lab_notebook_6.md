@@ -46,12 +46,18 @@ Simplify the counts: \
 
 #### 2.4 Find differentially expressed genes with Deseq2
 
-Calculate metrics: \
+**Uploading the files**: \
+[deseq2.r](https://github.com/lear-711/Bioinformatics_practice/blob/486f49aa309abc052a002c96b79525bd7a284698/deseq2.r) \
+[draw-heatmap.r](https://github.com/lear-711/Bioinformatics_practice/blob/3fcfad3b9dc412bfcbd19f92690a94a26fc9d1eb/draw-heatmap.r)
 
-Uploading the file: \
-[deseq2.r](https://github.com/lear-711/Bioinformatics_practice/blob/486f49aa309abc052a002c96b79525bd7a284698/deseq2.r)
+**Calculate metrics**: \
+Installing deseq2: `conda install -c bioconda bioconductor-deseq2` \
+`cat simple_counts.txt | R -f deseq2.r ` \
+[result.txt]() contains calculated metrics for our genes \
+[norm-matrix-deseq2.txt]() contains normalised counts that we will use in visualisation
 
-`cat simple_counts.txt | R -f deseq2.r `
+**Draw heatmap**: \
+`cat norm-matrix-deseq2.txt | R -f draw-heatmap.r`
 
 
 
