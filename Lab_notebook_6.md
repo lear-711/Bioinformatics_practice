@@ -65,9 +65,12 @@ Result: [output.pdf](https://github.com/lear-711/Bioinformatics_practice/blob/18
 
 ### 3. Result Interpretation
 
-Taking the first 50 genes from file result.txt and keeping only the first column (gene names): \
-`head -n 50 result.txt | cut -f 1 | cut -d "-" -f 2 > genes.txt`
+3.1 Taking the first 50 genes from file *result.txt* and keeping only the first column (gene names): \
+`head -n 50 result.txt | cut -f 1 | cut -d "-" -f 2 > genes.txt` \
+[genes.txt](https://github.com/lear-711/Bioinformatics_practice/blob/8a6cb14eb26e8f57c09e3f1bd1c80a5b518d1096/genes.txt)
+
+3.2 Using [Generic gene ontology (GO) term mapper](https://go.princeton.edu/cgi-bin/GOTermMapper) for analysis
 
 [Result of Gene ontology terms analysis](https://github.com/lear-711/Bioinformatics_practice/blob/5e7e97972174cac189375d299c2c2332a3bfb5f7/18837_slimTerms.pdf) \
-[HTML version](https://go.princeton.edu/tmp//18837_slimTerms.html)
+([HTML version](https://go.princeton.edu/tmp//18837_slimTerms.html))
 
