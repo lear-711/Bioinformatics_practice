@@ -47,30 +47,30 @@ Simplify the counts: \
 #### 2.4 Find differentially expressed genes with Deseq2
 
 **Uploading the files**: \
-[deseq2.r](https://github.com/lear-711/Bioinformatics_practice/blob/486f49aa309abc052a002c96b79525bd7a284698/deseq2.r) \
-[draw-heatmap.r](https://github.com/lear-711/Bioinformatics_practice/blob/3fcfad3b9dc412bfcbd19f92690a94a26fc9d1eb/draw-heatmap.r)
+[deseq2.r](https://github.com/lear-711/Bioinformatics_practice/blob/bef7fd2acf7730e55d7d34f7e03ad031698ac6b6/Project_Differential_RNA_expression_analysis/deseq2.r) \
+[draw-heatmap.r](https://github.com/lear-711/Bioinformatics_practice/blob/bef7fd2acf7730e55d7d34f7e03ad031698ac6b6/Project_Differential_RNA_expression_analysis/draw-heatmap.r)
 
 **Calculate metrics**: \
 Installing deseq2: \
 `conda install -c bioconda bioconductor-deseq2`
 
 `cat simple_counts.txt | R -f deseq2.r ` \
-[result.txt](https://github.com/lear-711/Bioinformatics_practice/blob/9b2a276e0d8a1a91b1501281ca885bc0875556ef/result.txt) contains calculated metrics for our genes \
-[norm-matrix-deseq2.txt](https://github.com/lear-711/Bioinformatics_practice/blob/9b2a276e0d8a1a91b1501281ca885bc0875556ef/norm-matrix-deseq2.txt) contains normalised counts that we will use in visualisation
+[result.txt](https://github.com/lear-711/Bioinformatics_practice/blob/bef7fd2acf7730e55d7d34f7e03ad031698ac6b6/Project_Differential_RNA_expression_analysis/result.txt) contains calculated metrics for our genes \
+[norm-matrix-deseq2.txt](https://github.com/lear-711/Bioinformatics_practice/blob/bef7fd2acf7730e55d7d34f7e03ad031698ac6b6/Project_Differential_RNA_expression_analysis/norm-matrix-deseq2.txt) contains normalised counts that we will use in visualisation
 
 **Draw heatmap**: \
 `cat norm-matrix-deseq2.txt | R -f draw-heatmap.r`
 
-Result: [output.pdf](https://github.com/lear-711/Bioinformatics_practice/blob/18dd85278a33ff7777ed610cd7fd1cf368c4e897/output.pdf)
+Result: [output.pdf](https://github.com/lear-711/Bioinformatics_practice/blob/bef7fd2acf7730e55d7d34f7e03ad031698ac6b6/Project_Differential_RNA_expression_analysis/output.pdf)
 
 ### 3. Result Interpretation
 
 3.1 Taking the first 50 genes from file *result.txt* and keeping only the first column (gene names): \
 `head -n 50 result.txt | cut -f 1 | cut -d "-" -f 2 > genes.txt` \
-[genes.txt](https://github.com/lear-711/Bioinformatics_practice/blob/8a6cb14eb26e8f57c09e3f1bd1c80a5b518d1096/genes.txt)
+[genes.txt](https://github.com/lear-711/Bioinformatics_practice/blob/bef7fd2acf7730e55d7d34f7e03ad031698ac6b6/Project_Differential_RNA_expression_analysis/genes.txt)
 
 3.2 Using [Generic gene ontology (GO) term mapper](https://go.princeton.edu/cgi-bin/GOTermMapper) for analysis
 
-[Result of Gene ontology terms analysis](https://github.com/lear-711/Bioinformatics_practice/blob/5e7e97972174cac189375d299c2c2332a3bfb5f7/18837_slimTerms.pdf) \
+[Result of Gene ontology terms analysis](https://github.com/lear-711/Bioinformatics_practice/blob/bef7fd2acf7730e55d7d34f7e03ad031698ac6b6/Project_Differential_RNA_expression_analysis/18837_slimTerms.pdf) \
 ([HTML version](https://go.princeton.edu/tmp//18837_slimTerms.html))
 
