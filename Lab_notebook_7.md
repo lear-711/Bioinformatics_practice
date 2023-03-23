@@ -21,7 +21,18 @@ Exploring how many sequences were obtained per sample and getting a summary of t
 #### 4. Feature table construction (and more QC)
 The metadata table is a barcode that was used to amplify the V5 region of the rRNA. \
 Striping it out and filtering chimeric sequences (using the DADA2 pipeline): \
-`qiime dada2 denoise-single   --i-demultiplexed-seqs sequences.qza   --p-trim-left 35 --p-trunc-len 40 --o-representative-sequences rep-seqs.qza --o-table table.qza --o-denoising-stats stats.qza`
+`qiime dada2 denoise-single   --i-demultiplexed-seqs sequences.qza   --p-trim-left 35 --p-trunc-len 140 --o-representative-sequences rep-seqs.qza --o-table table.qza --o-denoising-stats stats.qza`
 
 Checking how many reads are passed the filter and were clustered: \
 `qiime metadata tabulate   --m-input-file stats.qza   --o-visualization stats.qzv`
+
+#### 5. FeatureTable and FeatureData summaries
+Creating visual summaries of the data - how many sequences are associated with each sample and with each feature, etc.: \
+`qiime feature-table summarize   --i-table table.qza   --o-visualization table.qzv   --m-sample-metadata-file sample-metadata.tsv`
+
+Mapping feature IDs to sequences to use these representative sequences in other applications, e.g. BLAST each sequence against the NCBI nt database: \
+`qiime feature-table tabulate-seqs  --i-data rep-seqs.qza   --o-visualization rep-seqs.qzv`
+
+#### 6. Taxonomic analysis
+
+
