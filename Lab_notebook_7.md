@@ -35,4 +35,7 @@ Mapping feature IDs to sequences to use these representative sequences in other 
 
 #### 6. Taxonomic analysis
 
+[Downloading database](https://disk.yandex.ru/d/QxQWKV8x5ucxvw) \
+Comparing the representative sequences with the taxonomy database: \
+`qiime feature-classifier classify-sklearn   --i-classifier silva-138-99-nb-classifier.qza   --i-reads rep-seqs.qza   --o-classification taxonomy.qza`
 
