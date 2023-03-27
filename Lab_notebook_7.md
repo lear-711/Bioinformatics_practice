@@ -1,5 +1,7 @@
 # Dead Man’s Teeth. Introduction to metagenomics analysis.
 
+### Part 1. Amplicon sequencing
+
 #### 1. QIIME2 installation
 ```
 wget https://data.qiime2.org/distro/core/qiime2-2023.2-py38-osx-conda.yml
@@ -38,4 +40,42 @@ Mapping feature IDs to sequences to use these representative sequences in other 
 [Downloading database](https://disk.yandex.ru/d/QxQWKV8x5ucxvw) \
 Comparing the representative sequences with the taxonomy database: \
 `qiime feature-classifier classify-sklearn   --i-classifier silva-138-99-nb-classifier.qza   --i-reads rep-seqs.qza   --o-classification taxonomy.qza`
+
+Visualisation: \
+`qiime metadata tabulate --m-input-file taxonomy.qza --o-visualization taxonomy.qzv`
+
+View the taxonomic composition of our samples with interactive bar plots. \
+Generation those plots:
+```
+qiime taxa barplot \
+  --i-table table.qza \
+  --i-taxonomy taxonomy.qza \
+  --m-metadata-file sample-metadata.tsv \
+  --o-visualization taxa-bar-plots.qzv
+```
+View visualisation:\
+`qiime tools view taxa-bar-plots.qzv`
+
+[Q2_taxa barplot](https://github.com/lear-711/Bioinformatics_practice/blob/70c77fcb6a5361e8c79eefe4f0866b7cdfe4f7a6/Data_project_7/q2_taxa%20:%20barplot.pdf)
+
+The three members of the red complex are:
+* Porphyromonas gingivalis
+* Tannerella forsythia
+* Treponema denticola
+
+On barplot we can see that sample S10-V5-Q-B61-calc contains all 3 members of the red complex.
+
+### Part 2. Shotgun sequencing
+
+[Downloading data](https://www.dropbox.com/s/f5j52tliumt6etm/G12_assembly.fna.gz?dl=0)
+
+#### 1. Shotgun sequence data profiling
+
+Installing MetaPhlAn: \
+`conda install -c bioconda metaphlan`
+
+MetaPhlAn will align our sequencing reads to the microbiota database, then tabulate the abundance of each type of microbe that matched: \ 
+`metaphlan G12_assembly.fna --input_type fasta > output.txt`
+
+
 
