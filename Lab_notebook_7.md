@@ -77,5 +77,35 @@ Installing MetaPhlAn: \
 MetaPhlAn will align our sequencing reads to the microbiota database, then tabulate the abundance of each type of microbe that matched: \ 
 `metaphlan G12_assembly.fna --input_type fasta > output.txt`
 
+#### 2. Comparison with samples from HMP
+
+Comparing our results with data from the Human Microbiome Project: \
+```
+for f in ./Human_Microbiome_Project; do
+        metaphlan $f --input_type fasta --nproc 4 > ${f%.fasta.gz}_profile.txt
+done
+```
+
+```
+for f in *.fasta; do
+        metaphlan $f --input_type fasta --nproc 10 > ${f%.fasta.gz}_profile.txt
+done
+```
+
+#### 3. Visualization of the metaphlan results as a Sankey diagram
+
+**Visualization of the metaphlan results with a heat map** 
+
+Merging the metaphlan profile files into a single abundance table: \
+`merge_metaphlan_tables.py ./Human_Microbiome_Project/*profile.txt > merge_output.txt`
+
+Making a basic heat map: \
+`python3.8 metaphlan_hclust_heatmap.py --in merge_output.txt --out merge_output_heatmat.png -s log --top 50`
+
+
+
+
+
+
 
 
