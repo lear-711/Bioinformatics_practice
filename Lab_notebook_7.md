@@ -100,7 +100,40 @@ Merging the metaphlan profile files into a single abundance table: \
 `merge_metaphlan_tables.py ./Human_Microbiome_Project/*profile.txt > merge_output.txt`
 
 Making a basic heat map: \
-`python3.8 metaphlan_hclust_heatmap.py --in merge_output.txt --out merge_output_heatmat.png -s log --top 50`
+`python3.8 metaphlan_hclust_heatmap.py --in merge_output.txt --out merge_output_heatmat.png -s log --top 50` ?????
+
+
+#### 4. Comparison with ancient Tannerella forsythia genome
+
+Aligning contigs on the downloaded reference: \
+`bwa index Tannerella_forsythia_92A2.fasta` \
+```
+for f in SRR9*; do
+    bwa mem Tannerella_forsythia_92A2.fasta $f > ${f}_alignment.sam
+done
+```
+```
+for f in *alignment.sam; do
+    samtools view -S -b $f > ${f%.alignment.sam}_alignment.bam
+done
+```
+Turning obtained alignment file (BAM) to BED: \
+```
+for f in *alignment.bam; do
+    bedtools bamtobed -i $f > ${f}.bed
+done
+```
+```
+for f in *.bed; do
+    bedtools intersect -a Tannerella_forsythia_92A2.gff3 -b $f -v > ${f}_intersect.bam
+done
+```
+bedtools intersect -a Tannerella_forsythia_92A2.gff3 -b SRR986782.bed -v
+
+
+
+
+
 
 
 
