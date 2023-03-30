@@ -79,7 +79,7 @@ MetaPhlAn will align our sequencing reads to the microbiota database, then tabul
 
 #### 2. Comparison with samples from HMP
 
-Comparing our results with data from the Human Microbiome Project: \
+Comparing our results with data from the Human Microbiome Project:
 ```
 for f in ./Human_Microbiome_Project; do
         metaphlan $f --input_type fasta --nproc 4 > ${f%.fasta.gz}_profile.txt
@@ -106,7 +106,7 @@ Making a basic heat map: \
 #### 4. Comparison with ancient Tannerella forsythia genome
 
 Aligning contigs on the downloaded reference: \
-`bwa index Tannerella_forsythia_92A2.fasta` \
+`bwa index Tannerella_forsythia_92A2.fasta`
 ```
 for f in SRR9*; do
     bwa mem Tannerella_forsythia_92A2.fasta $f > ${f}_alignment.sam
@@ -117,7 +117,7 @@ for f in *alignment.sam; do
     samtools view -S -b $f > ${f%.alignment.sam}_alignment.bam
 done
 ```
-Turning obtained alignment file (BAM) to BED: \
+Turning obtained alignment file (BAM) to BED:
 ```
 for f in *alignment.bam; do
     bedtools bamtobed -i $f > ${f}.bed
@@ -128,8 +128,8 @@ for f in *.bed; do
     bedtools intersect -a Tannerella_forsythia_92A2.gff3 -b $f -v > ${f}_intersect.bam
 done
 ```
-bedtools intersect -a Tannerella_forsythia_92A2.gff3 -b SRR986782.bed -v
-
+Delete last column: \
+`cat SRR957750.bed_intersect.bam | cut -s -f 1-8 | head`
 
 
 
