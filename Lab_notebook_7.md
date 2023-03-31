@@ -11,7 +11,7 @@ conda config --env --set subdir osx-64
 ```
 
 #### 2. Importing data
-`qiime tools import   --type SRR957753.fastq   --input-path manifest.tsv   --output-path sequences.qza   --input-format SingleEndFastqManifestPhred33V2`
+`qiime tools import   --type 'SampleData[SequencesWithQuality]'   --input-path manifest.tsv   --output-path sequences.qza   --input-format SingleEndFastqManifestPhred33V2`
 
 Checking correctness of any QIIME artifact with qiime validate: \
 `qiime tools validate sequences.qza`
@@ -74,7 +74,7 @@ On barplot we can see that sample S10-V5-Q-B61-calc contains all 3 members of th
 Installing MetaPhlAn: \
 `conda install -c bioconda metaphlan`
 
-MetaPhlAn will align our sequencing reads to the microbiota database, then tabulate the abundance of each type of microbe that matched: \ 
+MetaPhlAn will align our sequencing reads to the microbiota database, then tabulate the abundance of each type of microbe that matched: 
 `metaphlan G12_assembly.fna --input_type fasta > output.txt`
 
 #### 2. Comparison with samples from HMP
@@ -100,7 +100,7 @@ Merging the metaphlan profile files into a single abundance table: \
 `merge_metaphlan_tables.py ./Human_Microbiome_Project/*profile.txt > merge_output.txt`
 
 Making a basic heat map: \
-`python3.8 metaphlan_hclust_heatmap.py --in merge_output.txt --out merge_output_heatmat.png -s log --top 50` ?????
+`python3.8 metaphlan_hclust_heatmap.py --in merge_output.txt --out merge_output_heatmat.png -s log --top 50`
 
 
 #### 4. Comparison with ancient Tannerella forsythia genome
@@ -129,7 +129,10 @@ for f in *.bed; do
 done
 ```
 Delete last column: \
-`cat SRR957750.bed_intersect.bam | cut -s -f 1-8 | head`
+`cat SRR957750.bed_intersect.bam | cut -s -f 1-8 | head` \
+`cat SRR957753.bed_intersect.bam | cut -s -f 1-8 | head` \
+`cat SRR957756.bed_intersect.bam | cut -s -f 1-8 | head` \
+`cat SRR957760.bed_intersect.bam | cut -s -f 1-8 | head` 
 
 
 
